@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 const readData = () => {
   try {
-    const data = fs.readFileSync("./db.json");
+    const data = fs.readFileSync("./aranceles_referencia_2024.json");
     return JSON.parse(data);
   } catch (error) {
     console.log(error);
@@ -25,11 +25,11 @@ const writeData = (data) => {
   }
 };
 
-app.get("/", (req, res) => {
-  res.send("Welcome to my first API with Node js!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Welcome to my first API with Node js!");
+// });
 
-app.get("/books", (req, res) => {
+app.get("/", (req, res) => {
   const data = readData();
   res.json(data);
 });
